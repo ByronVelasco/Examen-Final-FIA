@@ -41,7 +41,7 @@ def predict(
 
   prediction = model.predict(features)[0]
 
-  if prediction == "Extrovert":
+  if prediction == 0:
       result_text = "Eres una persona extrovertida"
       message = "Disfrutas estar con otras personas y participas activamente en actividades sociales."
   else:
