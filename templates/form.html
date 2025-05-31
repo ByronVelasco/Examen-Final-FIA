@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Predicción de Personalidad</title>
+  <style>
+    label { display: inline-block; width: 250px; margin-bottom: 8px; }
+    input, select { margin-bottom: 10px; }
+    h3 { color: green; }
+    p { font-style: italic; }
+  </style>
+</head>
+<body>
+  <h2>Formulario para predecir la personalidad</h2>
+  <form action="/predict" method="post">
+    <label>Horas que pasa solo al día:</label>
+    <input type="number" name="Time_spent_Alone" min="0" max="11" step="any" required><br>
+
+    <label>¿Tiene miedo escénico?</label>
+    <select name="Stage_fear" required>
+      <option value="Yes">Sí</option>
+      <option value="No">No</option>
+    </select><br>
+
+    <label>Frecuencia de eventos sociales (0-10):</label>
+    <input type="number" name="Social_event_attendance" min="0" max="10" step="any" required><br>
+
+    <label>Frecuencia de salir (0-7):</label>
+    <input type="number" name="Going_outside" min="0" max="7" step="any" required><br>
+
+    <label>¿Se siente agotado después de socializar?</label>
+    <select name="Drained_after_socializing" required>
+      <option value="Yes">Sí</option>
+      <option value="No">No</option>
+    </select><br>
+
+    <label>Tamaño del círculo de amigos (0-15):</label>
+    <input type="number" name="Friends_circle_size" min="0" max="15" step="any" required><br>
+
+    <label>Frecuencia de publicaciones en redes (0-10):</label>
+    <input type="number" name="Post_frequency" min="0" max="10" step="any" required><br>
+
+    <button type="submit">Predecir personalidad</button>
+  </form>
+
+  {% if result %}
+    <h3>{{ result }}</h3>
+    <p>{{ interpretation }}</p>
+  {% endif %}
+</body>
+</html>
