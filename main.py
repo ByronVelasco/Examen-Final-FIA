@@ -40,15 +40,16 @@ def predict(
   ]])
 
   prediction = model.predict(features)[0]
-  
-  # Interpretación del resultado
+
   if prediction == "Extrovert":
-    message = "Eres una persona extrovertida"
+      result_text = "Eres una persona extrovertida"
+      message = "Disfrutas estar con otras personas y participas activamente en actividades sociales."
   else:
-    message = "Eres una persona introvertida"
-  
+      result_text = "Eres una persona introvertida"
+      message = "Prefieres espacios tranquilos y disfrutas pasar tiempo a solas o en pequeños grupos."
+
   return templates.TemplateResponse("form.html", {
-    "request": request,
-    "result": f"Predicción: {prediction}",
-    "interpretation": message
+      "request": request,
+      "result": result_text,
+      "interpretation": message
   })
